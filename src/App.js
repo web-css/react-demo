@@ -1,21 +1,42 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-class App extends Component {
+class App extends React.Component {
   render() {
+    const boss = 'liyunlong'
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <h2>独立团，团长{boss}</h2>
+        <App2 boss="lisi"></App2>
+        <App3 boss="sundesheng"></App3>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+const App3 = (props) => (
+  <h4>qi bing lian lian zhang:{props.boss}</h4>
+)
+class App2 extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      soliders: ['demo1', 'demo2', 'demo3', 'demo4']
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <h2>yi ying ying zhang:{this.props.boss}</h2> 
+        <ul> 
+        {this.state.soliders.map(data => {
+        return <li key={data}>I am solider :{data}</li>
+        })} 
+        </ul>
+      </div>
+    )
+  }
+}
+
+
+export default App
