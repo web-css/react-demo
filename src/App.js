@@ -23,11 +23,16 @@ class App2 extends React.Component {
       soliders: ['demo1', 'demo2', 'demo3', 'demo4']
     }
   }
-
+  addNew() {
+    this.setState({
+      soliders: [...this.state.soliders, 'new solider' + Math.random()]
+    });
+  }
   render() {
     return (
       <div>
         <h2>yi ying ying zhang:{this.props.boss}</h2> 
+        <button onClick={()=>this.addNew()}>add new</button>
         <ul> 
         {this.state.soliders.map(data => {
         return <li key={data}>I am solider :{data}</li>
